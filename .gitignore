@@ -36,4 +36,5 @@ captures/
 *.iml  
 					  
 # Keystore files  
-*.jks
+*.jk
+.DS_Stores
