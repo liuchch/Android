@@ -12,7 +12,7 @@ public class Msg {
     private String content;
     private int type;
 
-    private Msg(String content, int type) {
+    public Msg(String content, int type) {
         this.content = content;
         this.type = type;
     }

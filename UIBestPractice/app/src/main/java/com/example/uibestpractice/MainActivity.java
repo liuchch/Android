@@ -31,13 +31,17 @@ public class MainActivity extends AppCompatActivity {
         LinearLayoutManager layoutManager = new LinearLayoutManager(this);
         msgRecyclerView.setLayoutManager(layoutManager);
         adapter = new MsgAdapter(msgList);
-        msgRecyclerView.setOnClickListener(new View.OnClickListener() {
+        msgRecyclerView.setAdapter(adapter);
+
+        send.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 String content = inputText.getText().toString();
                 if (!"".equals(content)) {
                     Msg msg = new Msg(content, Msg.TYPE_SENT);
                     msgList.add(msg);
+                    Msg msg1 = new Msg("I Love You", Msg.TYPE_RECEIVED);
+                    msgList.add(msg1);
                     adapter.notifyItemInserted(msgList.size() - 1);
                     //当有新消息时刷新ListView中显示
                     msgRecyclerView.scrollToPosition(msgList.size() - 1);
